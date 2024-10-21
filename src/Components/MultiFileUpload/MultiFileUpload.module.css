@@ -1,0 +1,50 @@
+.uploadContainer {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+  padding: 20px;
+  border: 2px dashed #007bff;
+  border-radius: 8px;
+}
+
+.dropzone {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.fileList {
+  margin-top: 20px;
+}
+
+.fileItem {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.uploadBtn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.uploadBtn:disabled {
+  background-color: #6c757d;
+}
+
+.removeBtn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
