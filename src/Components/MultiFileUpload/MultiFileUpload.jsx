@@ -1,41 +1,14 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { useDropzone } from 'react-dropzone';
 import { FaCloudUploadAlt } from "react-icons/fa";
 import styles from './MultiFileUpload.module.css';
 
-const MultiFileUpload = () => {
-  const [files, setFiles] = useState([]);
-  const [uploading, setUploading] = useState(false);
-
+const MultiFileUpload = ({ files, setFiles, uploadFiles, uploading, removeFile }) => {
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => setFiles([...files, ...acceptedFiles]),
     multiple: true,
     accept: 'image/*',
   });
-
-  const uploadFiles = async () => {
-    setUploading(true);
-    const formData = new FormData();
-    files.forEach((file) => formData.append('files', file));
-
-    try {
-      const response = await axios.post('https://your-api.com/upload', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      });
-      if (response) {
-        alert('Files uploaded successfully!');
-      }
-    } catch (error) {
-      alert('Error uploading files');
-    } finally {
-      setUploading(false);
-    }
-  };
-
-  const removeFile = (fileName) => {
-    setFiles(files.filter((file) => file.name !== fileName));
-  };
 
   return (
     <div className={styles.uploadContainer}>
